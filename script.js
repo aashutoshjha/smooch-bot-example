@@ -17,7 +17,7 @@ module.exports = new Script({
     
     startAgain: {
         receive: (bot) => {
-            return bot.say('My creator seems to be away. By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
+            return bot.say('My creator seems to be away. By the time they respond, do you want me to tell you a joke? I am their pet bot, "bhot"')
                 .then(() => 'askGame');
         }
     },
@@ -30,12 +30,16 @@ module.exports = new Script({
     },
 
     askName: {
-        prompt: (bot) => bot.say('Now that we are friends, what is your name?'),
+        receive: (bot) => {
+            return bot.say('Now that we are friends, what is your name?')
+                //prompt: (bot) => bot.say('Now that we are friends, what is your name?'),
+        }
         receive: (bot, message) => {
             const response = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`I'll call you ${name}.`))
                 .then(() => 'finish');
+        
         }
     },
 
