@@ -9,7 +9,8 @@ module.exports = new Script({
     },
 
     start: {
-        receive: (bot) => {
+        receive: (bot, mess) => {
+            const bhaiya = mess.text;
             //return bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
                 .then(() => 'startAgain');
         }
