@@ -10,7 +10,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
+            return bot.say('Thanks for reaching out! Let us quickly get back to you.')
                 .then(() => 'startAgain');
         }
     },
@@ -28,7 +28,8 @@ module.exports = new Script({
             const response = message.text;
             //if response == "yes"
             return bot.setProp('name', name)
-                .then(() => bot.say(`Joke`))
+                .then(() => bot.say(`Why was the baby strawberry sad?
+Because its parents were in a jam.`))
                 .then(() => 'finish');
         }
     },
