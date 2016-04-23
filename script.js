@@ -16,11 +16,11 @@ module.exports = new Script({
     },
 
     askName: {
-        //prompt: (bot) => bot.say('What\'s your name? How would you like me to help you?'),
+        prompt: (bot) => bot.say('What\'s your name? How would you like me to help you?'),
         receive: (bot, message) => {
             const response = message.text;
-            if response == "yes"
-            //return bot.setProp('name', name)
+            //if response == "yes"
+            return bot.setProp('name', name)
                 .then(() => bot.say(`Great! I'll call you ${name}`))
                 .then(() => 'finish');
         }
