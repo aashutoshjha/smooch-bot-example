@@ -10,7 +10,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Hi there , thanks for contacting us. In case we are not around, feel free to drop your queries here with your email id/contact nnumber and we will get back to you ASAP.')
+            return bot.say('Hi there , thanks for contacting us. In case we are not around, feel free to drop your queries here with your email id/contact no. and we will get back to you ASAP.')
                 .then(() => 'startAgain');
         }
     },
