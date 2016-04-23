@@ -10,18 +10,25 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
+            //return bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
+                .then(() => 'startAgain');
+        }
+    },
+    
+    startAgain: {
+        receive: (bot) => {
+            return bot.say('My creator seems to be away. By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
                 .then(() => 'askName');
         }
     },
 
     askName: {
-        prompt: (bot) => bot.say('What\'s your name? How would you like me to help you?'),
+        //prompt: (bot) => bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"'),
         receive: (bot, message) => {
             const response = message.text;
             //if response == "yes"
             return bot.setProp('name', name)
-                .then(() => bot.say(`Great! I'll call you ${name}`))
+                .then(() => bot.say(`Joke`))
                 .then(() => 'finish');
         }
     },
