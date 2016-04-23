@@ -18,18 +18,24 @@ module.exports = new Script({
     startAgain: {
         receive: (bot) => {
             return bot.say('My creator seems to be away. By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"')
+                .then(() => 'askGame');
+        }
+    },
+    
+    askGame: {
+        receive: (bot) => {
+            return bot.say('Why was the baby strawberry sad?
+Because its parents were in a jam.')
                 .then(() => 'askName');
         }
     },
 
     askName: {
-        //prompt: (bot) => bot.say('By the time my creator responds, do you want me to tell you a joke? I am their pet bot, "bhot"'),
+        prompt: (bot) => bot.say('Now that we are friends, what is your name?'),
         receive: (bot, message) => {
             const response = message.text;
-            //if response == "yes"
             return bot.setProp('name', name)
-                .then(() => bot.say(`Why was the baby strawberry sad?
-Because its parents were in a jam.`))
+                .then(() => bot.say(`I'll call you ${name}.`))
                 .then(() => 'finish');
         }
     },
