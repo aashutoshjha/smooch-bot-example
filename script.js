@@ -25,19 +25,22 @@ module.exports = new Script({
     askGame: {
         receive: (bot) => {
             return bot.say('Why was the baby strawberry sad? Because its parents were in a jam.')
-                .then(() => 'askName');
+                .then(() => 'askFame');
         }
     },
 
-    askName: {
+    askFame: {
         receive: (bot) => {
             return bot.say('Now that we are friends, what is your name?')
-                //prompt: (bot) => bot.say('Now that we are friends, what is your name?'),
+                .then(() => 'askName');
         }
+    },
+    
+    askName: {
         receive: (bot, message) => {
             const response = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`I'll call you ${name}.`))
+                .then(() => bot.say(`Okey. I'll call you ${name}.`))
                 .then(() => 'finish');
         
         }
