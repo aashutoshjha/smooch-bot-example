@@ -10,7 +10,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Thanks for reaching out! Let us quickly get back to you.')
+            return bot.say('Hi there , thanks for contacting us. In case we are not around, feel free to drop your queries here with your email id/contact nnumber and we will get back to you ASAP.')
                 .then(() => 'startAgain');
         }
     },
@@ -24,7 +24,7 @@ module.exports = new Script({
     
     askGame: {
         receive: (bot) => {
-            return bot.say('Why was the baby strawberry sad? Because its parents were in a jam.')
+            return bot.say('Why was the baby strawberry sad? Because its parents were in a jam. LOLZ!')
                 .then(() => 'askFame');
         }
     },
@@ -38,7 +38,7 @@ module.exports = new Script({
     
     askName: {
         receive: (bot, message) => {
-            const response = message.text;
+            const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Okey. I'll call you ${name}.`))
                 .then(() => 'finish');
