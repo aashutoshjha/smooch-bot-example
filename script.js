@@ -24,8 +24,7 @@ module.exports = new Script({
     
     askGame: {
         receive: (bot) => {
-            return bot.say('Why was the baby strawberry sad?
-Because its parents were in a jam.')
+            return bot.say('Why was the baby strawberry sad? Because its parents were in a jam.')
                 .then(() => 'askName');
         }
     },
